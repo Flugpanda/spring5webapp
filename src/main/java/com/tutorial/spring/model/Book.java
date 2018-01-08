@@ -13,8 +13,9 @@ import javax.persistence.ManyToMany;
 
 /**
  * 
- * @author santa
  * A class that represents an book.
+ * 
+ * @author Bastian Bräunel
  */
 @Entity
 public class Book {

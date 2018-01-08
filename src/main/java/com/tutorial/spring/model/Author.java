@@ -11,8 +11,9 @@ import javax.persistence.ManyToMany;
 
 /**
  * 
- * @author santa
  * A class that represents an author.
+ *
+ * @author Bastian Bräunel
  *
  */
 @Entity
