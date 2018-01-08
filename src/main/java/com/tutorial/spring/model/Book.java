@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 /**
  * 
@@ -25,7 +26,10 @@ public class Book {
 	private Long id;
 	private String isbn;
 	private String title;
-	private String publischer;
+	
+	@OneToOne
+	@JoinTable(name="publisher_book", joinColumns=@JoinColumn(name="book_id"), inverseJoinColumns=@JoinColumn(name="publisher_id"))
+	private Publisher publisher;
 
 	/**
 	 * change hibernates default generated mapping
@@ -44,7 +48,7 @@ public class Book {
 	public Book() {
 		this.title = "no title";
 		this.isbn = "no isbn";
-		this.publischer = "unknown";
+		this.publisher = new Publisher();
 	}
 	
 	/**
@@ -53,10 +57,10 @@ public class Book {
 	 * @param isbn		the isbn number of the book
 	 * @param publisher	the publisher of the book
 	 */
-	public Book(String title, String isbn, String publisher) {
+	public Book(String title, String isbn, Publisher  publisher) {
 		this.title = title;
 		this.isbn = isbn;
-		this.publischer = publisher;
+		this.publisher = publisher;
 	}
 	
 	/**
@@ -67,10 +71,10 @@ public class Book {
 	 * @param publisher	the publisher of the book
 	 * @param authors	a set of authors that wrote this book
 	 */
-	public Book(String title, String isbn, String publisher, Set<Author> authors) {
+	public Book(String title, String isbn, Publisher publisher, Set<Author> authors) {
 		this.title = title;
 		this.isbn = isbn;
-		this.publischer = publisher;
+		this.publisher = publisher;
 		this.authors = authors;
 	}
 
@@ -99,12 +103,12 @@ public class Book {
 		this.title = title;
 	}
 
-	public String getPublischer() {
-		return publischer;
+	public Publisher getPublischer() {
+		return publisher;
 	}
 
-	public void setPublischer(String publischer) {
-		this.publischer = publischer;
+	public void setPublischer(Publisher publischer) {
+		this.publisher = publischer;
 	}
 
 	public Set<Author> getAuthors() {
@@ -142,7 +146,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", isbn=" + isbn + ", title=" + title + ", publischer=" + publischer + ", authors="
+		return "Book [id=" + id + ", isbn=" + isbn + ", title=" + title + ", publisher=" + publisher.toString() + ", authors="
 				+ authors + "]";
 	}	
 }
