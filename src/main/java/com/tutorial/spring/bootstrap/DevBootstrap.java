@@ -6,9 +6,8 @@ import org.springframework.stereotype.Component;
 
 import com.tutorial.spring.model.Author;
 import com.tutorial.spring.model.Book;
-
-import repositories.IAuthorRespositories;
-import repositories.IBookRepositories;
+import com.tutorial.spring.repositories.IAuthorRepositories;
+import com.tutorial.spring.repositories.IBookRepositories;
 /**
  * 
  * Prepare some date for the development at boot
@@ -19,7 +18,7 @@ import repositories.IBookRepositories;
 @Component
 public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 
-	private IAuthorRespositories authorRepository;
+	private IAuthorRepositories authorRepository;
 	private IBookRepositories bookRepository;
 	
 	/**
@@ -28,10 +27,9 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 	 * @param authorRepository	CRUD repository object for the authors
 	 * @param bookRepository	CRUD repository object for the books 
 	 */
-	public DevBootstrap(IAuthorRespositories authorRepository, IBookRepositories bookRepository) {
-		super();
-		this.authorRepository = authorRepository;
-		this.bookRepository = bookRepository;
+	public DevBootstrap(IAuthorRepositories authorRepository, IBookRepositories bookRepository) {
+        this.authorRepository = authorRepository;
+        this.bookRepository = bookRepository;
 	}
 
 	@Override

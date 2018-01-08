@@ -1,4 +1,4 @@
-package repositories;
+package com.tutorial.spring.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -9,6 +9,6 @@ import com.tutorial.spring.model.Author;
  * 
  * @author Bastian Bräunel
  */
-public interface IAuthorRespositories extends CrudRepository<Author, Long>{
+public interface IAuthorRepositories extends CrudRepository<Author, Long>{
 
 }
