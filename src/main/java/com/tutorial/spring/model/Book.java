@@ -45,6 +45,9 @@ public class Book {
 	 * default constructor
 	 */
 	public Book() {
+		this.isbn = "unknown isbn";
+		this.title = "unknown title";
+		this.publisher = new Publisher();
 	}
 	
 	/**
@@ -99,11 +102,11 @@ public class Book {
 		this.title = title;
 	}
 
-	public Publisher getPublischer() {
+	public Publisher getPublisher() {
 		return publisher;
 	}
 
-	public void setPublischer(Publisher publischer) {
+	public void setPublisher(Publisher publischer) {
 		this.publisher = publischer;
 	}
 
