@@ -28,8 +28,7 @@ public class Book {
 	private String title;
 	
 	@OneToOne
-	@JoinTable(name="publisher_book", joinColumns=@JoinColumn(name="book_id"), inverseJoinColumns=@JoinColumn(name="publisher_id"))
-	private Publisher publisher;
+    private Publisher publisher;
 
 	/**
 	 * change hibernates default generated mapping
@@ -46,9 +45,6 @@ public class Book {
 	 * default constructor
 	 */
 	public Book() {
-		this.title = "no title";
-		this.isbn = "no isbn";
-		this.publisher = new Publisher();
 	}
 	
 	/**

@@ -51,10 +51,18 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 		Author alice = new Author("Hans", "Heiner");
 		//Peter
 		Author peter = new Author("Peter", "Lustig");
-		
+			
 		// Publisher
-		Publisher pubOne = new Publisher("Rapidprinting LTD", "Dark Alley 12, London");
-		Publisher pubTwo = new Publisher( "Trashcan Pros", "Dumproad 11a, Over There");
+		Publisher pubOne = new Publisher();
+		pubOne.setName("Rapidprinting LTD");
+		pubOne.setAddress("Dark Alley 12, London");
+		
+		Publisher pubTwo = new Publisher();
+		pubTwo.setName("Trashcan Pros");
+		pubTwo.setAddress("Dumproad 11a, Over There");
+		
+		publisherRepository.save(pubOne);
+		publisherRepository.save(pubTwo);
 		
 		// Books
 		Book bookOne = new Book("Why it's cold coutside?", "12345", pubOne);
@@ -68,9 +76,6 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 		// save the data
 		authorRepository.save(alice);
 		authorRepository.save(peter);
-		
-		publisherRepository.save(pubOne);
-		publisherRepository.save(pubTwo);
 		
 		bookRepository.save(bookOne);
 		bookRepository.save(bookTwo);

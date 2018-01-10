@@ -20,24 +20,24 @@ public class Publisher {
 	private String name;
 	private String address;
 	
-	/**
-	 * default constructor
-	 */
-	public Publisher() {
-		this.name = "unkown";
-		this.address = "unkown adress";
-	}
-	
-	/**
-	 * constructor to create a publisher object 
-	 * 
-	 * @param name		the name of the publisher
-	 * @param adress	the address of the publishers hq
-	 */
-	public Publisher(String name, String address) {
-		this.name = name;
-		this.address = address;
-	}
+//	/**
+//	 * default constructor
+//	 */
+//	public Publisher() {
+//		this.name = "unkown";
+//		this.address = "unkown adress";
+//	}
+//	
+//	/**
+//	 * constructor to create a publisher object 
+//	 * 
+//	 * @param name		the name of the publisher
+//	 * @param adress	the address of the publishers hq
+//	 */
+//	public Publisher(String name, String address) {
+//		this.name = name;
+//		this.address = address;
+//	}
 
 		
 	@Override
