@@ -37,10 +37,10 @@ public class Book {
 	 * joinColumns=@JoinColumn(name="book_id")	> joining authors and books by the book_id
 	 * inverseJoinColumns=@JoinColumn(name="author_id")	> specifying the other direction of the join by the author_id
 	 */
-	@ManyToMany
-	@JoinTable(name="author_book", joinColumns=@JoinColumn(name="book_id"), inverseJoinColumns=@JoinColumn(name="author_id"))
-	private Set<Author> authors = new HashSet<Author>();
-	
+    @ManyToMany
+    @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
+    private Set<Author> authors = new HashSet<>();
+    
 	/**
 	 * default constructor
 	 */
@@ -145,7 +145,6 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", isbn=" + isbn + ", title=" + title + ", publisher=" + publisher.toString() + ", authors="
-				+ authors + "]";
+		return "Book [id=" + id + ", isbn=" + isbn + ", title=" + title + ", publisher=" + publisher.toString() + "]";
 	}	
 }

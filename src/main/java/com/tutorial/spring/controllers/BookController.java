@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.tutorial.spring.repositories.IBookRepositories;
 
 /**
- * This class represents a very simple spring mvc controller
+ * This class represents a very simple spring mvc controller for the books
  * 
  * @author Bastian Bräunel
  *

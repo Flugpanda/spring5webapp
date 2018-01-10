@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- specifying the xml namespace to use the thymleaf specific tags -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Framework 5 Web App</title>
+</head>
+<body>
+<h1>Author List</h1>
+
+<table>
+	<tr>
+		<th>Serialized Authors</th>
+	</tr>
+	<tr th:each="author : ${authors}">
+		<td th:text="${author.toString()}">Serialized Object</td>
+	</tr>
+</table>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Books</th>
+    </tr>
+    <!-- th:each represents a thymleaf iterator tag -->
+    <tr th:each="author : ${authors}">
+   		<td th:text="${author.id}">28</td>
+       	<td th:text="${author.firstName}">Arthur Conan</td>
+        <td th:text="${author.lastName}">Doyle</td>
+        <td>
+        	<table th:each="book : ${author.books}">
+        		<tr th:text="${book.title}">Book</tr>
+        	</table>
+        </td>
+    </tr>
+</table>
+
+
+</body>
+</html>
