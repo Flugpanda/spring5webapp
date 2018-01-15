@@ -106,8 +106,8 @@ public class Book {
 		return publisher;
 	}
 
-	public void setPublisher(Publisher publischer) {
-		this.publisher = publischer;
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
 	}
 
 	public Set<Author> getAuthors() {

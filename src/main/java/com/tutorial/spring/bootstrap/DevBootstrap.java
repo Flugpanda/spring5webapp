@@ -12,7 +12,7 @@ import com.tutorial.spring.repositories.IBookRepositories;
 import com.tutorial.spring.repositories.IPublisherRepositories;
 /**
  * 
- * Prepare some date for the development at boot
+ * Prepare some date for the development at boot of the spring app
  * 
  * @author Bastian Bräunel
  *
@@ -27,8 +27,9 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 	/**
 	 * Constructor for injecting the repository objects through spring framework
 	 * 
-	 * @param authorRepository	CRUD repository object for the authors
-	 * @param bookRepository	CRUD repository object for the books 
+	 * @param authorRepository		CRUD repository object for the authors
+	 * @param bookRepository		CRUD repository object for the books 
+	 * @param publisherRepository	CRUD repository object for the publisher
 	 */
 	public DevBootstrap(IAuthorRepositories authorRepository, IBookRepositories bookRepository, IPublisherRepositories publisherRepository) {
         this.authorRepository = authorRepository;
@@ -42,7 +43,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 	}
 
 	/**
-	 * Bootstrap data for the database by creating some authors nad books
+	 * Bootstrap data for the database by creating some authors and books
 	 */
 	private void initDataDB() {
 		
@@ -68,13 +69,11 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 		// add the books to the authors 
 		peter.getBooks().add(bookOne);
 		hans.getBooks().add(bookOne);
-		//### Next line does not work ###
 		peter.getBooks().add(bookTwo);
 		
 		// add the authors to the books
 		bookOne.getAuthors().add(hans);
 		bookTwo.getAuthors().add(peter);
-		//### Next line does not work ###
 		bookOne.getAuthors().add(peter);
 		
 		// save the data
